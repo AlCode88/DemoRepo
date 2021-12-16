@@ -23,10 +23,6 @@ def lambda_handler(event, context):
                 'ResourceType': 'snapshot',
                 'Tags': [
                     {
-                        'Key': 'Delete-on',
-                        'Value': '90'
-                    },
-                    {
                         'Key': 'Name',
                         'Value': 'enesai'
                     }

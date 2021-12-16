@@ -2,15 +2,16 @@
 resource "aws_cloudwatch_event_rule" "event_based_triggering_on_termination" {
     name = "Trigger_Lambda_on_termination"
     description = "Trigger_Lambda on EC2 terminatio"
-    event_pattern  = <<EOF
-{
-  "source": ["aws.ec2"],
-  "detail-type": ["EC2 Instance State-change Notification"],
-  "detail": {
-    "state": ["terminated"]
-  }
-}
-EOF
+    event_pattern  =<<EOF
+    {
+      "source": ["aws.ec2"],
+      "detail-type": ["EBS Volume Notification"],
+      "detail": {
+        "event": ["deleteVolume"]
+      }
+    }
+    EOF
+
 }
 
 # =================== Event Based Target ==============================
