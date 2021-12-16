@@ -76,3 +76,4 @@ def lambda_handler(event, context):
                 }
             ]
         )
+print('Copying Snapshots to us-east-2 has been successfully completed')

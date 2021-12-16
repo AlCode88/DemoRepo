@@ -3,7 +3,7 @@ import boto3
 ec2_console = boto3.session.Session(profile_name='DemoLambdaBoto')
 client = ec2_console.client('ec2', region_name='us-east-1')
 
-
+print('Creating EC2 instance')
 response = client.run_instances(
     BlockDeviceMappings=[
         {
@@ -39,6 +39,20 @@ response = client.run_instances(
                     'Value': 'dev'
                 }
             ]
+        },
+        {
+            'ResourceType': 'volume',
+            'Tags': [
+                {
+                    'Key': 'Name',
+                    'Value': 'enesai'
+                },
+                {
+                    'Key': 'env',
+                    'Value': 'dev'
+                }
+            ]
         }
     ]
 )
+print("Instance Had been successfully created")

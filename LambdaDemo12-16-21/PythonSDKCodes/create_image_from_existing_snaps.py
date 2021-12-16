@@ -1,5 +1,4 @@
 import boto3
-from datetime import datetime
 
 ########### Filters Variables and Clients ##############################
 ec2_console = boto3.session.Session(profile_name='DemoLambdaBoto') 
@@ -53,10 +52,6 @@ ec2_cli=ec2_console.client(service_name="ec2",region_name="us-east-1")
 waiter = ec2_cli.get_waiter('snapshot_completed')                                                                         
 waiter.wait(SnapshotIds=snap_ids)
 
-########## Define UTC time zone ##########
-now = datetime.now()
-time = now.strftime("%m-%d-%Y  %H-%M-%S")
-
 ############## Variables and boto client ###########################################################
 ec2_console = boto3.session.Session(profile_name='DemoLambdaBoto')
 list_ec2_snaps = ec2_console.client(service_name='ec2', region_name='us-east-1')
@@ -91,9 +86,3 @@ def creat_images_from_snap():
         )
     print("Images for dev snapshot has been created")
 creat_images_from_snap()
-
-########### Creating waiter using client  ########################
-# ec2_console = boto3.session.Session(profile_name='DemoLambdaBoto') 
-# ec2_cli=ec2_console.client(service_name="ec2",region_name="us-east-1")                                                        
-# waiter = ec2_cli.get_waiter('image_available')                                                                         
-# waiter.wait(ImageIds=)

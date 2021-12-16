@@ -1,3 +1,4 @@
+#========== Zips files ===========
 data "archive_file" "zip" {
   type        = "zip"
   source_file = "copyToRegion.py"
