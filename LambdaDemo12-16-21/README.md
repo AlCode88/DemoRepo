@@ -43,4 +43,7 @@ Link to install Python3 [How To Install Python 3.7 on CentOS/RHEL 7 & Fedora 34/
 
 ## Custom Session Configurations
 Profile Name can be anything BotoLambdaDemo and you have to configure Access Keys, Secret Keys, region and format -json. <br> - Custom Session
-`aws configure --profile BotoLambdaDemo` <br> - To check the keys you can run `cat .aws/credentials`  <br> - To check the profile name you can run `cat .aws/config`    
+`aws configure --profile BotoLambdaDemo` <br> - To check the keys you can run `cat .aws/credentials`  <br> - To check the profile name you can run `cat .aws/config` 
+
+## Install Terraform
+Link to Install Terraform
