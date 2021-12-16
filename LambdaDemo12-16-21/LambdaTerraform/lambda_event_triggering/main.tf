@@ -18,24 +18,23 @@ data "aws_iam_policy_document" "policy" {
     actions = ["sts:AssumeRole"]
   }
 }
-
 ############ IAM Role for Lambda ##############################
-resource "aws_iam_role" "iam_for_lambda_create_snapshot" {
-  name               = "Create_Snap_On_Temination"
+resource "aws_iam_role" "iam_for_lambda_start" {
+  name               = "LambdaEventStart"
   assume_role_policy = data.aws_iam_policy_document.policy.json
 }
 
 ################ Lambda Resource ###############################
-resource "aws_lambda_function" "lambda_create_snapshot" {
-  function_name = "CreateSnapshotOnTermination"
+resource "aws_lambda_function" "lambda" {
+  function_name = "StartInstance"
 
   filename         = data.archive_file.zip.output_path
   source_code_hash = data.archive_file.zip.output_base64sha256
   
-  role    = aws_iam_role.iam_for_lambda_create_snapshot.arn
+  role    = aws_iam_role.iam_for_lambda_start.arn
   handler = "hello_lambda.lambda_handler"
   runtime = "python3.6"
-  timeout = 400
+  timeout = 180
 
   environment {
     variables = {
