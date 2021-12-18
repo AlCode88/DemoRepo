@@ -45,5 +45,11 @@ Link to install Python3 [How To Install Python 3.7 on CentOS/RHEL 7 & Fedora 34/
 Profile Name can be anything BotoLambdaDemo and you have to configure Access Keys, Secret Keys, region and format -json. <br> - Custom Session
 `aws configure --profile BotoLambdaDemo` <br> - To check the keys you can run `cat .aws/credentials`  <br> - To check the profile name you can run `cat .aws/config` 
 
-## Install Terraform
-Link to Install Terraform
+## Install Terraform on Amazon Linux
+1. Install yum-config-manager to manage your repositories
+`sudo yum install -y yum-utils`
+2. Use yum-config-manager to add the official HashiCorp Linux repository.
+`sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo`
+3. Install
+`sudo yum -y install terraform`
+
